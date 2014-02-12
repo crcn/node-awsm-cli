@@ -50,8 +50,11 @@ function initialize (ops) {
   console.log("Profile: %s", ops.profile);
   console.log("Regions: %s", (cfg.ec2.regions || awsm.supportedEC2Regions).join(", "));
 
-  var aws      = awsm(cfg),
-  chain        = aws.chain(),
+  var aws      = awsm(cfg);
+
+  loadPlugins(aws);
+
+  var chain    = aws.chain(),
   ec2          = chain.ec2(),
 
   chains       = {
@@ -72,12 +75,12 @@ function initialize (ops) {
   aws.__chain  = chain;
   aws.__conf   = ops;
 
+
   console.log("\n------------------------------------\n");
 
 
   chain.then(function () {
-    loadPlugins(aws);
-    logChain(chain);
+    // logChain(chain);
     executeInitialCommands(aws, ops.commands);
   });
 
@@ -175,7 +178,6 @@ function executeCommand (aws, command, next) {
   }
 
   if (!cchain || !cchain.then) {
-    console.log(cchain);
     return next2();
   }
 
@@ -189,17 +191,24 @@ function executeCommand (aws, command, next) {
 
     var t;
 
-    if (/array|object/.test(t = type(results))) {
+    try {
+      if (/array|object/.test(t = type(results))) {
 
-      var vanilla = JSON.parse(JSON.stringify(results));
+        var vanilla = JSON.parse(JSON.stringify(results));
 
-      if (t === "array") {
-        vanilla = flatten(vanilla);
+
+        if (t === "array") {
+          vanilla = flatten(vanilla);
+        }
+
+        console.log(JSON.stringify(vanilla, null, 2));
+      } else if (results) {
+        console.log(JSON.stringify(results, null, 2));
       }
 
-      console.log(JSON.stringify(vanilla, null, 2));
-    } else if (results) {
-      console.log(JSON.stringify(results, null, 2));
+    // might have a circular ref error
+    } catch (e) {
+      console.log(results);
     }
 
     next2();
