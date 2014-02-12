@@ -1,0 +1,209 @@
+#!/usr/bin/env node
+
+var commander = require("commander"),
+defaultOps    = {},
+fs            = require("fs"),
+awsm          = require("awsm"),
+readline      = require("readline"),
+sprintf       = require("sprintf"),
+async         = require("async"),
+type          = require("type-component"),
+flatten       = require("flatten"),
+vm            = require("vm");
+
+commander.
+usage("[commands...]").
+option("-c, --config", "Config path. defaults to ~/.awsm/config.json", defaultOps.config = "~/.awsm/config.json").
+option("-p, --profile", "Profile to use. Default is 'default'", defaultOps.profile = "default").
+option("-i, --interactive", "Interactive mode").
+option("-r, --regions [regions]", "Regions to use. Default is in config").
+parse(process.argv);
+
+var ops = {
+  config      : (commander.config  || defaultOps.config).replace(/\~/, process.env.HOME).replace(/^\./, process.cwd()),
+  profile     : commander.profile || defaultOps.profile,
+  regions     : commander.regions ? commander.regions.split(",") : undefined,
+  commands    : commander.args || [],
+  interactive : commander.interactive
+}
+
+// start now
+initialize(ops);
+
+
+/**
+ * initializes the CLI
+ */
+
+function initialize (ops) {
+
+  console.log("\n------------------------------------\n");
+
+
+  var cfg = require(ops.config)[ops.profile];
+
+
+  if (ops.regions) {
+    cfg.ec2.regions = ops.regions;
+  }
+
+  console.log("Profile: %s", ops.profile);
+  console.log("Regions: %s", (cfg.ec2.regions || awsm.supportedEC2Regions).join(", "));
+
+  var aws      = awsm(cfg),
+  chain        = aws.chain(),
+  ec2          = chain.ec2(),
+
+  chains       = {
+    ec2             : ec2,
+    regions         : ec2.regions,
+    instances       : ec2.instances,
+    images          : ec2.images,
+    keyPairs        : ec2.keyPairs,
+    securityGroups  : ec2.securityGroups,
+    addresses       : ec2.addresses,
+    volumes         : ec2.volumes,
+    zones           : ec2.zones,
+    snapshots       : ec2.snapshots
+  };
+
+
+  aws.__chains = chains;
+  aws.__chain  = chain;
+  aws.__conf   = ops;
+
+  console.log("\n------------------------------------\n");
+
+
+  chain.then(function () {
+    loadPlugins(aws);
+    logChain(chain);
+    executeInitialCommands(aws, ops.commands);
+  });
+
+}
+
+
+/**
+ */
+
+function logChain (chain) {
+  chain.on("call", function(options) {
+    process.stdout.write(sprintf("%s.%s(%s)\n".cyan, options.target, options.method, options.args.map(function(arg) {
+      return JSON.stringify(arg);
+    }).join(", ")));
+  });
+}
+
+/**
+ * loads the plugins installed specifically for the CLI
+ */
+
+function loadPlugins (aws) {
+
+  var modulesPath = __dirname + "/../node_modules",
+  moduleNames = [];
+
+  var plugins = fs.readdirSync(modulesPath).filter(function (name) {
+    return /^awsm-/.test(name);
+  }).map(function (name) {
+    moduleNames.push(name);
+    return require(modulesPath + "/" + name);
+  });
+
+  if (plugins.length) {
+    console.log("Modules: %s", moduleNames.join(", "));
+  }
+
+  aws.use.apply(aws, plugins);
+}
+
+/**
+ */
+
+function executeInitialCommands (aws, commands) {
+  executeCommand(aws, commands.join(";"), function () {
+    if (ops.interactive) {
+      aws.__chain.then(function () {
+        setupReadline(aws);
+      });
+    }
+  });
+}
+
+/**
+ */
+
+function setupReadline (aws) {
+  readCommandFromInput(aws, readline.createInterface({
+    input  : process.stdin,
+    output : process.stdout
+  }));
+}
+
+/**
+ */
+
+function readCommandFromInput (aws, rl) {
+  rl.question("> ", function (command) {
+    executeCommand(aws, command, function () {
+      readCommandFromInput(aws, rl);
+    })
+  });
+}
+
+/**
+ */
+
+function executeCommand (aws, command, next) {
+  if (!command.length) return next();
+
+  var chain = aws.__chain,
+  chains    = aws.__chains;
+
+  function next2 (err) {
+    if (err) {
+      console.error("Error: %s", err.message);
+    }
+    chain.then(next);
+  }
+
+  try {
+    var cchain = vm.createScript(command).runInNewContext(chains);
+  } catch (e) {
+    return next2(e);
+  }
+
+  if (!cchain || !cchain.then) {
+    console.log(cchain);
+    return next2();
+  }
+
+  cchain.then(function (err, results) {
+
+    if (err) return next2(err);
+
+    if (results.length === 1) {
+      results = results[0];
+    }
+
+    var t;
+
+    if (/array|object/.test(t = type(results))) {
+
+      var vanilla = JSON.parse(JSON.stringify(results));
+
+      if (t === "array") {
+        vanilla = flatten(vanilla);
+      }
+
+      console.log(JSON.stringify(vanilla, null, 2));
+    } else if (results) {
+      console.log(JSON.stringify(results, null, 2));
+    }
+
+    next2();
+  })
+}
+
+

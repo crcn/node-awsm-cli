@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var spawn = require("child_process").spawn,
+packages  = process.argv.slice(2).map(function (name) {
+  return "awsm-" + name;
+});
+
+console.log("installing %s", packages.join(", "));
+
+
+var proc = spawn("npm", ["install"].concat(packages), { cwd: __dirname + "/../" });
+
+proc.stdout.pipe(process.stdout);
+proc.stderr.pipe(process.stderr);

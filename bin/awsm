@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var commander = require("commander");
+
+commander.
+command("install [awsm-package]", "installs an awsm plugin").
+command("run", "runs awsm command line");
+
+
+commander.parse(process.argv);

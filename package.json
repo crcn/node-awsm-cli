@@ -1,0 +1,32 @@
+{
+  "name": "awsm-cli",
+  "version": "0.0.2",
+  "description": "node-awsm-cli =============",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "awsm": "./bin/awsm",
+    "awsm-install": "./bin/awsm-install",
+    "awsm-run": "./bin/awsm-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/crcn/node-awsm-cli.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/crcn/node-awsm-cli/issues"
+  },
+  "dependencies": {
+    "commander": "2.1.x",
+    "awsm": "0.0.x",
+    "colors": "~0.6.2",
+    "sprintf": "~0.1.3",
+    "async": "~0.2.10",
+    "type-component": "0.0.1",
+    "flatten": "0.0.1"
+  }
+}
