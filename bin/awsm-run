@@ -30,7 +30,6 @@ var ops = {
 // start now
 initialize(ops);
 
-
 /**
  * initializes the CLI
  */
@@ -74,6 +73,23 @@ function initialize (ops) {
   aws.__chains = chains;
   aws.__chain  = chain;
   aws.__conf   = ops;
+
+  aws.cli = {
+    openReadline: function (proc) {
+      if (aws.readline) return;
+      aws.cli.closeReadline();
+      if (!proc) proc = process;
+      return aws.readline = readline.createInterface({
+        input  : proc.stdin,
+        output : proc.stdout
+      })
+    },
+    closeReadline: function () {
+      if (!aws.readline) return;
+      aws.readline.close();
+      aws.readline = undefined;
+    }
+  }
 
 
   console.log("\n------------------------------------\n");
@@ -138,19 +154,17 @@ function executeInitialCommands (aws, commands) {
  */
 
 function setupReadline (aws) {
-  readCommandFromInput(aws, readline.createInterface({
-    input  : process.stdin,
-    output : process.stdout
-  }));
+  aws.cli.openReadline();
+  readCommandFromInput(aws);
 }
 
 /**
  */
 
-function readCommandFromInput (aws, rl) {
-  rl.question("> ", function (command) {
+function readCommandFromInput (aws) {
+  aws.readline.question("> ", function (command) {
     executeCommand(aws, command, function () {
-      readCommandFromInput(aws, rl);
+      readCommandFromInput(aws);
     })
   });
 }
