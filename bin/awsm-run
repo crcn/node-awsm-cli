@@ -186,6 +186,12 @@ function executeCommand (aws, command, next) {
   }
 
   try {
+
+    // convert something like instances.find() to instances().find()
+    // or regions.all.instances.find() to regions().all().instances().find()
+    command = command.replace(/(\w)\.(\w)/g, "$1().$2");
+
+
     var cchain = vm.createScript(command).runInNewContext(chains);
   } catch (e) {
     return next2(e);
