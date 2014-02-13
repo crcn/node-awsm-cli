@@ -55,18 +55,19 @@ function initialize (ops) {
 
   var chain    = aws.chain(),
   ec2          = chain.ec2(),
+  all          = ec2.regions().all(),
 
   chains       = {
     ec2             : ec2,
     regions         : ec2.regions,
-    instances       : ec2.instances,
-    images          : ec2.images,
-    keyPairs        : ec2.keyPairs,
-    securityGroups  : ec2.securityGroups,
-    addresses       : ec2.addresses,
-    volumes         : ec2.volumes,
-    zones           : ec2.zones,
-    snapshots       : ec2.snapshots
+    instances       : all.instances,
+    images          : all.images,
+    keyPairs        : all.keyPairs,
+    securityGroups  : all.securityGroups,
+    addresses       : all.addresses,
+    volumes         : all.volumes,
+    zones           : all.zones,
+    snapshots       : all.snapshots
   };
 
 
