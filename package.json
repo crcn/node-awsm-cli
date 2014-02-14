@@ -1,6 +1,6 @@
 {
   "name": "awsm-cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "node-awsm-cli =============",
   "main": "./lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "bin": {
     "awsm": "./bin/awsm",
     "awsm-install": "./bin/awsm-install",
-    "awsm-run": "./bin/awsm-run"
+    "awsm-cli": "./bin/awsm-cli"
   },
   "repository": {
     "type": "git",
