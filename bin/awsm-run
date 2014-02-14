@@ -9,7 +9,8 @@ sprintf       = require("sprintf"),
 async         = require("async"),
 type          = require("type-component"),
 flatten       = require("flatten"),
-vm            = require("vm");
+vm            = require("vm"),
+burrito       = require("burrito");
 
 commander.
 usage("[commands...]").
@@ -181,18 +182,13 @@ function executeCommand (aws, command, next) {
 
   function next2 (err) {
     if (err) {
-      console.error("Error: %s", err.message);
+      console.error("Error: %s", err.stack);
     }
     chain.then(next);
   }
 
   try {
-
-    // convert something like instances.find() to instances().find()
-    // or regions.all.instances.find() to regions().all().instances().find()
-    command = command.replace(/(\w)\.(\w)/g, "$1().$2");
-
-
+    command = cleanCommand(command);
     var cchain = vm.createScript(command).runInNewContext(chains);
   } catch (e) {
     return next2(e);
@@ -235,5 +231,26 @@ function executeCommand (aws, command, next) {
     next2();
   })
 }
+
+// converts a.b.c -> a().b().c()
+function cleanCommand (command) {
+  var stringMatcher;
+  var strings = command.match(stringMatcher = /['"].*?['"]/g),
+  placeholder = "__STRING__";
+  command = command.replace(stringMatcher, placeholder);
+
+  var refMatcher = /(\w)\.(\w)/;
+
+  while (refMatcher.test(command)) {
+    command = command.replace(refMatcher, "$1().$2");
+  }
+
+  while (~command.indexOf(placeholder)) {
+    command = command.replace(placeholder, strings.shift());
+  }
+
+  return command;
+}
+
 
 
