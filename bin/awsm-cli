@@ -215,7 +215,7 @@ function executeCommand (aws, command, next) {
 
 
         if (t === "array") {
-          vanilla = flatten(vanilla);
+          vanilla = filterUndefined(flatten(vanilla));
         }
 
         console.log(JSON.stringify(vanilla, null, 2));
@@ -225,10 +225,17 @@ function executeCommand (aws, command, next) {
 
     // might have a circular ref error
     } catch (e) {
-      console.log(results);
+      console.log(filterUndefined(results));
     }
 
     next2();
+  })
+}
+
+
+function filterUndefined(ary) {
+  return ary.filter(function (value) {
+    return value != null;
   })
 }
 
