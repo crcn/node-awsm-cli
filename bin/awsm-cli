@@ -63,6 +63,7 @@ function initialize (ops) {
     regions         : ec2.regions,
     instances       : all.instances,
     images          : all.images,
+    allImages       : all.allImages,
     keyPairs        : all.keyPairs,
     securityGroups  : all.securityGroups,
     addresses       : all.addresses,
