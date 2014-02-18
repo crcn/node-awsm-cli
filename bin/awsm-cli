@@ -14,11 +14,12 @@ burrito       = require("burrito");
 
 commander.
 usage("[commands...]").
-option("-c, --config", "Config path. defaults to ~/.awsm/config.json", defaultOps.config = "~/.awsm/config.json").
-option("-p, --profile", "Profile to use. Default is 'default'", defaultOps.profile = "default").
+option("-c, --config [config]", "Config path. defaults to ~/.awsm/config.json", defaultOps.config = "~/.awsm/config.json").
+option("-p, --profile [profile]", "Profile to use. Default is 'default'", defaultOps.profile = "default").
 option("-i, --interactive", "Interactive mode").
 option("-r, --regions [regions]", "Regions to use. Default is in config").
 parse(process.argv);
+
 
 var ops = {
   config      : (commander.config  || defaultOps.config).replace(/\~/, process.env.HOME).replace(/^\./, process.cwd()),
