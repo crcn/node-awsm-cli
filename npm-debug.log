@@ -1,0 +1,273 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/craig/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+12 verbose folder .
+13 silly lockFile 1f1177db-tar tar://.
+14 verbose lock tar://. /Users/craig/.npm/1f1177db-tar.lock
+15 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+16 verbose lock tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz /Users/craig/.npm/70dc15ab-08005-0-5486220642924309-tmp-tgz.lock
+17 silly lockFile 1f1177db-tar tar://.
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+20 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+21 verbose tar unpack /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+22 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+23 verbose lock tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package /Users/craig/.npm/1d857f94-08005-0-5486220642924309-package.lock
+24 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+25 verbose lock tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz /Users/craig/.npm/70dc15ab-08005-0-5486220642924309-tmp-tgz.lock
+26 silly gunzTarPerm modes [ '755', '644' ]
+27 silly gunzTarPerm extractEntry package.json
+28 silly gunzTarPerm extractEntry .npmignore
+29 silly gunzTarPerm extractEntry README.md
+30 silly gunzTarPerm extractEntry test.js
+31 silly gunzTarPerm extractEntry bin/awsm
+32 silly gunzTarPerm extractEntry bin/awsm-cli
+33 silly gunzTarPerm extractEntry bin/awsm-install
+34 silly gunzTarPerm extractEntry echo
+35 silly gunzTarPerm extractEntry screenshots/screen.png
+36 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+37 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+38 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+39 silly lockFile 70dc15ab-08005-0-5486220642924309-tmp-tgz tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/tmp.tgz
+40 verbose tar pack [ '/Users/craig/.npm/awsm-cli/0.0.13/package.tgz',
+40 verbose tar pack   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package' ]
+41 verbose tarball /Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+42 verbose folder /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+43 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+44 verbose lock tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package /Users/craig/.npm/1d857f94-08005-0-5486220642924309-package.lock
+45 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+46 verbose lock tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz /Users/craig/.npm/32064646--npm-awsm-cli-0-0-13-package-tgz.lock
+47 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+48 silly lockFile 1d857f94-08005-0-5486220642924309-package tar:///var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1329-8opQ585Q/1392682408005-0.5486220642924309/package
+49 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+50 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+51 silly lockFile f9a4b493-raig-npm-awsm-cli-0-0-13-package /Users/craig/.npm/awsm-cli/0.0.13/package
+52 verbose lock /Users/craig/.npm/awsm-cli/0.0.13/package /Users/craig/.npm/f9a4b493-raig-npm-awsm-cli-0-0-13-package.lock
+53 silly lockFile f9a4b493-raig-npm-awsm-cli-0-0-13-package /Users/craig/.npm/awsm-cli/0.0.13/package
+54 silly lockFile f9a4b493-raig-npm-awsm-cli-0-0-13-package /Users/craig/.npm/awsm-cli/0.0.13/package
+55 verbose tar unpack /Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+56 silly lockFile c78203b1-raig-npm-awsm-cli-0-0-13-package tar:///Users/craig/.npm/awsm-cli/0.0.13/package
+57 verbose lock tar:///Users/craig/.npm/awsm-cli/0.0.13/package /Users/craig/.npm/c78203b1-raig-npm-awsm-cli-0-0-13-package.lock
+58 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+59 verbose lock tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz /Users/craig/.npm/32064646--npm-awsm-cli-0-0-13-package-tgz.lock
+60 silly gunzTarPerm modes [ '755', '644' ]
+61 silly gunzTarPerm extractEntry package.json
+62 silly gunzTarPerm extractEntry .npmignore
+63 silly gunzTarPerm extractEntry README.md
+64 silly gunzTarPerm extractEntry test.js
+65 silly gunzTarPerm extractEntry bin/awsm
+66 silly gunzTarPerm extractEntry bin/awsm-cli
+67 silly gunzTarPerm extractEntry bin/awsm-install
+68 silly gunzTarPerm extractEntry echo
+69 silly gunzTarPerm extractEntry screenshots/screen.png
+70 silly lockFile c78203b1-raig-npm-awsm-cli-0-0-13-package tar:///Users/craig/.npm/awsm-cli/0.0.13/package
+71 silly lockFile c78203b1-raig-npm-awsm-cli-0-0-13-package tar:///Users/craig/.npm/awsm-cli/0.0.13/package
+72 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+73 silly lockFile 32064646--npm-awsm-cli-0-0-13-package-tgz tar:///Users/craig/.npm/awsm-cli/0.0.13/package.tgz
+74 verbose chmod /Users/craig/.npm/awsm-cli/0.0.13/package.tgz 644
+75 verbose chown /Users/craig/.npm/awsm-cli/0.0.13/package.tgz [ 501, 20 ]
+76 silly lockFile 3a52ce78- .
+77 silly lockFile 3a52ce78- .
+78 silly publish { name: 'awsm-cli',
+78 silly publish   version: '0.0.13',
+78 silly publish   description: 'node-awsm-cli =============',
+78 silly publish   main: './lib/index.js',
+78 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+78 silly publish   bin:
+78 silly publish    { awsm: './bin/awsm',
+78 silly publish      'awsm-install': './bin/awsm-install',
+78 silly publish      'awsm-cli': './bin/awsm-cli' },
+78 silly publish   repository: { type: 'git', url: 'git://github.com/crcn/node-awsm-cli.git' },
+78 silly publish   author: '',
+78 silly publish   license: 'BSD-2-Clause',
+78 silly publish   bugs: { url: 'https://github.com/crcn/node-awsm-cli/issues' },
+78 silly publish   dependencies:
+78 silly publish    { commander: '2.1.x',
+78 silly publish      awsm: '0.0.x',
+78 silly publish      colors: '~0.6.2',
+78 silly publish      sprintf: '~0.1.3',
+78 silly publish      async: '~0.2.10',
+78 silly publish      'type-component': '0.0.1',
+78 silly publish      flatten: '0.0.1',
+78 silly publish      burrito: '~0.2.12' },
+78 silly publish   readme: 'node-awsm-cli\n=============\n\nawsm command line interface\n\n\n![screenshot](screenshots/screen.png)',
+78 silly publish   readmeFilename: 'README.md',
+78 silly publish   _id: 'awsm-cli@0.0.13',
+78 silly publish   dist: { shasum: '719877845dc7c034ded5a8da98a0981daac99929' },
+78 silly publish   _from: '.' }
+79 verbose url raw awsm-cli
+80 verbose url resolving [ 'http://registry.npmjs.org/', './awsm-cli' ]
+81 verbose url resolved http://registry.npmjs.org/awsm-cli
+82 info trying registry request attempt 1 at 16:13:28
+83 http PUT http://registry.npmjs.org/awsm-cli
+84 http 409 http://registry.npmjs.org/awsm-cli
+85 verbose url raw awsm-cli
+86 verbose url resolving [ 'http://registry.npmjs.org/', './awsm-cli' ]
+87 verbose url resolved http://registry.npmjs.org/awsm-cli
+88 info trying registry request attempt 1 at 16:13:29
+89 http GET http://registry.npmjs.org/awsm-cli
+90 http 200 http://registry.npmjs.org/awsm-cli
+91 verbose uploading [ 'awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716',
+91 verbose uploading   '/Users/craig/.npm/awsm-cli/0.0.13/package.tgz' ]
+92 verbose url raw awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+93 verbose url resolving [ 'http://registry.npmjs.org/',
+93 verbose url resolving   './awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716' ]
+94 verbose url resolved http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+95 info trying registry request attempt 1 at 16:13:29
+96 http PUT http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+97 http 503 http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+98 verbose bad json <?xml version="1.0" encoding="utf-8"?>
+98 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+98 verbose bad json  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+98 verbose bad json <html>
+98 verbose bad json   <head>
+98 verbose bad json     <title>503 backend write error</title>
+98 verbose bad json   </head>
+98 verbose bad json   <body>
+98 verbose bad json     <h1>Error 503 backend write error</h1>
+98 verbose bad json     <p>backend write error</p>
+98 verbose bad json     <h3>Guru Meditation:</h3>
+98 verbose bad json     <p>XID: 688060314</p>
+98 verbose bad json     <hr>
+98 verbose bad json     <p>Varnish cache server</p>
+98 verbose bad json   </body>
+98 verbose bad json </html>
+99 error registry error parsing json
+100 info retry will retry, error on last attempt: SyntaxError: Unexpected token <
+100 info retry
+100 info retry <?xml version="1.0" encoding="utf-8"?>
+100 info retry <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+100 info retry  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+100 info retry <html>
+100 info retry   <head>
+100 info retry     <title>503 backend write error</title>
+100 info retry   </head>
+100 info retry   <body>
+100 info retry     <h1>Error 503 backend write error</h1>
+100 info retry     <p>backend write error</p>
+100 info retry     <h3>Guru Meditation:</h3>
+100 info retry     <p>XID: 688060314</p>
+100 info retry     <hr>
+100 info retry     <p>Varnish cache server</p>
+100 info retry   </body>
+100 info retry </html>
+101 info trying registry request attempt 2 at 16:13:39
+102 http PUT http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+103 http 503 http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+104 verbose bad json <?xml version="1.0" encoding="utf-8"?>
+104 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+104 verbose bad json  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+104 verbose bad json <html>
+104 verbose bad json   <head>
+104 verbose bad json     <title>503 backend write error</title>
+104 verbose bad json   </head>
+104 verbose bad json   <body>
+104 verbose bad json     <h1>Error 503 backend write error</h1>
+104 verbose bad json     <p>backend write error</p>
+104 verbose bad json     <h3>Guru Meditation:</h3>
+104 verbose bad json     <p>XID: 3558984351</p>
+104 verbose bad json     <hr>
+104 verbose bad json     <p>Varnish cache server</p>
+104 verbose bad json   </body>
+104 verbose bad json </html>
+105 error registry error parsing json
+106 info retry will retry, error on last attempt: SyntaxError: Unexpected token <
+106 info retry
+106 info retry <?xml version="1.0" encoding="utf-8"?>
+106 info retry <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+106 info retry  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+106 info retry <html>
+106 info retry   <head>
+106 info retry     <title>503 backend write error</title>
+106 info retry   </head>
+106 info retry   <body>
+106 info retry     <h1>Error 503 backend write error</h1>
+106 info retry     <p>backend write error</p>
+106 info retry     <h3>Guru Meditation:</h3>
+106 info retry     <p>XID: 3558984351</p>
+106 info retry     <hr>
+106 info retry     <p>Varnish cache server</p>
+106 info retry   </body>
+106 info retry </html>
+107 info trying registry request attempt 3 at 16:14:40
+108 http PUT http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+109 http 503 http://registry.npmjs.org/awsm-cli/-/awsm-cli-0.0.13.tgz/-rev/31-5af599747ab066a248388478795ec716
+110 verbose bad json <?xml version="1.0" encoding="utf-8"?>
+110 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+110 verbose bad json  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+110 verbose bad json <html>
+110 verbose bad json   <head>
+110 verbose bad json     <title>503 client read error</title>
+110 verbose bad json   </head>
+110 verbose bad json   <body>
+110 verbose bad json     <h1>Error 503 client read error</h1>
+110 verbose bad json     <p>client read error</p>
+110 verbose bad json     <h3>Guru Meditation:</h3>
+110 verbose bad json     <p>XID: 3804368147</p>
+110 verbose bad json     <hr>
+110 verbose bad json     <p>Varnish cache server</p>
+110 verbose bad json   </body>
+110 verbose bad json </html>
+111 error registry error parsing json
+112 error publish Error uploading package
+113 error SyntaxError: Unexpected token <
+113 error
+113 error <?xml version="1.0" encoding="utf-8"?>
+113 error <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+113 error  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+113 error <html>
+113 error   <head>
+113 error     <title>503 client read error</title>
+113 error   </head>
+113 error   <body>
+113 error     <h1>Error 503 client read error</h1>
+113 error     <p>client read error</p>
+113 error     <h3>Guru Meditation:</h3>
+113 error     <p>XID: 3804368147</p>
+113 error     <hr>
+113 error     <p>Varnish cache server</p>
+113 error   </body>
+113 error </html>
+113 error
+113 error     at Object.parse (native)
+113 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:238:23)
+113 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:129:22)
+113 error     at Request.EventEmitter.emit (events.js:98:17)
+113 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:873:14)
+113 error     at Request.EventEmitter.emit (events.js:117:20)
+113 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:824:12)
+113 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+113 error     at _stream_readable.js:920:16
+113 error     at process._tickCallback (node.js:415:13)
+114 error If you need help, you may report this log at:
+114 error     <http://github.com/isaacs/npm/issues>
+114 error or email it to:
+114 error     <npm-@googlegroups.com>
+115 error System Darwin 13.0.0
+116 error command "node" "/usr/local/bin/npm" "publish"
+117 error cwd /Users/craig/Developer/Public/node-awsm-cli
+118 error node -v v0.10.21
+119 error npm -v 1.3.11
+120 error type unexpected_token
+121 verbose exit [ 1, true ]

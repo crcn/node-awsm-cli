@@ -57,9 +57,14 @@ function initialize (ops) {
 
   var chain    = aws.chain(),
   ec2          = chain.ec2(),
+  route53      = chain.route53(),
   all          = ec2.regions().all(),
 
   chains       = {
+
+    route53         : route53,
+    hostedZones     : route53.hostedZones,
+
     ec2             : ec2,
     regions         : ec2.regions,
     instances       : all.instances,
